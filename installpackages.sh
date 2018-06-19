@@ -1,11 +1,13 @@
-echo "Installing Yay"
-git clone https://aur.archlinux.org/yay.git && cd yay
-sudo makepkg -si && cd .. && rm -rf yay
+echo "Installing all packages"
+sudo pacman -Sy --needed --noconfirm --force $(cat packagelist)
+
+if [ ! -f /usr/bin/yay ]; then
+    echo "Installing Yay"
+    git clone https://aur.archlinux.org/yay.git && cd yay
+    makepkg -si && cd .. && rm -rf yay
+fi
 
 echo "Updating system"
-yay
+yay --noconfirm --needed
 
-echo "Installing all packages"
-sudo pacman -S --needed --force $(cat packagelist) --noconfirm
-
-yay -S $(cat packagelist.aur) --nocofirm
+yay -S --noconfirm --needed $(cat packagelist.aur)
