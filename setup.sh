@@ -14,7 +14,7 @@ git clone --recursive https://github.com/SeleneOS/dotfiles_setup.git
 echo "Copying files to home directory"
 cp -rf dotfiles_setup/* ~
 cp -rf dotfiles_setup/.* ~
-rm -rf ~/.git ~/.seleneos/.git
+rm -rf ~/.git ~/.gitmodules ~/README.md ~/.seleneos/.git ~/.seleneos/README.md
 
 echo "Adding some color to pacman"
 sudo sed -i "/#Color/c\Color" /etc/pacman.conf
