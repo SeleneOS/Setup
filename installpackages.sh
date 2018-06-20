@@ -4,7 +4,7 @@ sudo pacman -Sy --needed --noconfirm --force $(cat packagelist)
 if [ ! -f /usr/bin/yay ]; then
     echo "Installing Yay"
     git clone https://aur.archlinux.org/yay.git && cd yay
-    makepkg -si && cd .. && rm -rf yay
+    makepkg -si --noconfirm && cd .. && rm -rf yay
 fi
 
 echo "Updating system"
