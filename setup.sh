@@ -21,3 +21,5 @@ sudo sed -i "/#Color/c\Color" /etc/pacman.conf
 
 echo "Disabling password for sudo"
 sudo sed -i "/# %wheel ALL=(ALL) NOPASSWD: ALL/c\%wheel ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
+
+echo -e "\n\nSetup finished! Press Control+D to logout or reboot, then login again!\n"
