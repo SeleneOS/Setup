@@ -14,9 +14,12 @@ cp -rf dotfiles_setup/.* ~
 rm -rf ~/.git ~/README.md
 
 if [[ -d ~/.seleneos ]]; then
+    if [[ -d ~/.seleneos_old ]]; then
+        rm -rf ~/.selene_old
+    fi
     mv ~/.seleneos ~/.seleneos_old
 fi
-git clone https://github.com/SeleneOS/dotfiles_setup.git ~/.seleneos
+git clone https://github.com/SeleneOS/dotfiles.git ~/.seleneos
 
 if [[ -f /etc/pacman.conf ]]; then
     echo "Adding some color to pacman"
