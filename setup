@@ -1,5 +1,5 @@
 echo "Installing Selene OS packages"
-sh installpackages.sh
+./installpackages
 
 echo "\nSetting up Selene OS configuration"
-sh setup_config.sh
+./setup_config
