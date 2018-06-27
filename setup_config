@@ -5,6 +5,9 @@ echo "Creating home directories"
 mkdir -p ~/testing ~/downloads ~/repos/$USER ~/documents ~/music ~/pictures/screenshots ~/videos ~/.seleneos_data
 
 echo "Creating temporary folder /tmp/selene_setup"
+if [[ -d /tmp/selene_setup ]]; then
+    rm -rf /tmp/selene_setup
+fi
 mkdir -p /tmp/selene_setup && cd /tmp/selene_setup
 echo "Downloading dotfiles_setup"
 git clone https://github.com/SeleneOS/dotfiles_setup.git
@@ -14,10 +17,7 @@ cp -rf dotfiles_setup/.* ~
 rm -rf ~/.git ~/README.md
 
 if [[ -d ~/.seleneos ]]; then
-    if [[ -d ~/.seleneos_old ]]; then
-        rm -rf ~/.selene_old
-    fi
-    mv ~/.seleneos ~/.seleneos_old
+    rm -rf ~/.seleneos
 fi
 git clone https://github.com/SeleneOS/dotfiles.git ~/.seleneos
 
