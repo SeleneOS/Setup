@@ -11,7 +11,7 @@ git clone --recursive https://github.com/SeleneOS/dotfiles_setup.git
 echo "Copying files to home directory"
 cp -rf dotfiles_setup/* ~
 cp -rf dotfiles_setup/.* ~
-rm -rf ~/.git ~/.gitmodules ~/README.md ~/.seleneos/.git ~/.seleneos/README.md
+rm -rf ~/.git ~/.gitmodules ~/README.md
 
 if [[ -f /etc/pacman.conf ]]; then
     echo "Adding some color to pacman"
@@ -23,7 +23,7 @@ sudo sed -i "/# %wheel ALL=(ALL) NOPASSWD: ALL/c\%wheel ALL=(ALL) NOPASSWD: ALL"
 
 echo "Adding bash_profile and bashrc"
 echo -e "\n# Selene OS\n[[ -f ~/.seleneos/.bash_profile ]] && . ~/.seleneos/.bash_profile" >> ~/.bash_profile
-echo -e "\n[[ -f ~/.seleneos/.bashrc ]] && . ~/.seleneos/.bashrc" >> ~/.bashrc
+echo -e "\n# Selene OS\n[[ -f ~/.seleneos/.bashrc ]] && . ~/.seleneos/.bashrc" >> ~/.bashrc
 
 
 echo -e "\n\nSetup finished! Press Control+D to logout or reboot, then login again!\n"
