@@ -1,10 +1,16 @@
+echo "Installing Visual Studio Code extensions"
+code --install-extension acharluk.acharluk-extension-pack
+
+echo "Setting up Vim"
 cd
 mkdir -p .vim/{autoload,colors,syntax,plugin,spell,config}
-mv .vimrc .vim/vimrc
+if [ -f ~/.vimrc ]; then
+    rm ~/.vimrc;
+fi
 ln -s .vim/vimrc .vimrc
 cd ~/.vim
 if [ -d ~/.vim/pathogen ]; then
-    rm -rf ~/.vim/pathogen
+    rm -rf ~/.vim/pathogen;
 fi
 git clone https://github.com/tpope/vim-pathogen.git pathogen
 cd autoload

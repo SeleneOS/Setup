@@ -1,5 +1,5 @@
 echo "Installing all packages"
-sudo pacman -Sy --needed --noconfirm --force $(cat packagelist)
+sudo pacman -Sy --needed --noconfirm --overwrite $(cat packagelist)
 
 if [ ! -f /usr/bin/yay ]; then
     echo "Installing Yay"
