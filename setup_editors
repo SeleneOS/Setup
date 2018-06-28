@@ -3,15 +3,11 @@ code --install-extension acharluk.acharluk-extension-pack
 
 echo "Setting up Vim"
 cd
+if [ -d ~/.vim ]; then
+    rm -rf ~/.vim;
+fi
 mkdir -p .vim/{autoload,colors,syntax,plugin,spell,config}
-if [ -f ~/.vimrc ]; then
-    rm ~/.vimrc;
-fi
-ln -s .vim/vimrc .vimrc
 cd ~/.vim
-if [ -d ~/.vim/pathogen ]; then
-    rm -rf ~/.vim/pathogen;
-fi
 git clone https://github.com/tpope/vim-pathogen.git pathogen
 cd autoload
 ln -s ../pathogen/autoload/pathogen.vim .
@@ -20,9 +16,6 @@ echo "Installing NerdTree"
 cd ~/.vim
 mkdir -p bundle
 cd bundle
-if [ -d ~/.vim/bundle/nerdtree ]; then
-    rm -rf ~/.vim/bundle/nerdtree
-fi
 git clone https://github.com/scrooloose/nerdtree.git nerdtree
 
 echo "Setting up theme: vividchalk"
