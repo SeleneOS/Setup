@@ -38,5 +38,10 @@ if ! grep -q seleneos "/home/$USER/.bashrc"; then
     echo -e "\n# Selene OS\n[[ -f ~/.seleneos/.bashrc ]] && . ~/.seleneos/.bashrc" >> ~/.bashrc
 fi
 
+echo "Installing Visual Studio Code extensions"
+code --install-extension acharluk.acharluk-extension-pack
+
+echo "Setting up Vim"
+./setup_vim
 
 echo -e "\n\nSetup finished! Press Control+D to logout or reboot, then login again!\n"
